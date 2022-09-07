@@ -1,22 +1,28 @@
 package datos;
 
 import dominio.Pelicula;
-import java.awt.List;
+import excepciones.AccesoDatosEx;
+import excepciones.EscrituraDatosEx;
+import excepciones.LecturaDatosEx;
+import java.util.List;
 
 public interface AccesoDatos {
 
-public abstract boolean existe(String rutaArchivo);
-//public abstract List<Pelicula> listar();
+public abstract boolean existe(String rutaArchivo) throws AccesoDatosEx;
 /*
-no entiendo bien la funcion de arriba qué hace o qué devuelve
-y por qué tiene ese parámetro de String
+entonces la idea acá era saber si ya existe el archivo en el disco duro
 */
+
+public abstract List<Pelicula> listar(String rutaArchivo) throws LecturaDatosEx;
+
 public abstract void anexarPeliculaEnLista(Pelicula pelicula,
                                             String rutaArchivo,
                                             boolean anexar);
-public abstract String buscar(String rutaArchivo, String cualPeli);
-public abstract void crearPeli(String rutaArchivo);
-public abstract void borrarPeli(String rutaArchivo);
+public abstract String buscarPeli(String rutaArchivo, String cualPeli) throws LecturaDatosEx;
+public abstract void escribirPeliEnLista(String rutaArchivo, Pelicula peli, boolean anexar) throws EscrituraDatosEx;
+public abstract void borrarPeli(String rutaArchivo) throws AccesoDatosEx;
+
+public abstract void crearRecurso(String nombreRecurso) throws AccesoDatosEx;
  
     
 }

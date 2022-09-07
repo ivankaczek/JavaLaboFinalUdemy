@@ -29,6 +29,11 @@ public class Pelicula {
         return "Pelicula{" + "nombre=" + nombre + '}';
     }
     
-    
+    /*
+    Esta clase es un Java Bean porque cumple lo siguiente:
+    atributos en private
+    constructor vacio
+    metodos get y set para cada atributo
+    */
     
 }

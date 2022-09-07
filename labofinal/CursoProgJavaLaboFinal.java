@@ -6,8 +6,7 @@ import negocio.CatalogoPeliculas;
 public class CursoProgJavaLaboFinal {
     public static void main(String[] args) {
         
-        Scanner sc = new Scanner(System.in);
-        int opcion;
+        
         String rutaArchivo = "D:\\UdemyJAVA\\CPJLaboFinal\\";
         //CatalogoPeliculas cat = new CatalogoPeliculas();
         

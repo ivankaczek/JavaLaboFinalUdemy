@@ -1,13 +1,16 @@
 package labofinal;
 
 import java.util.*;
+import negocio.CatalogoPeliculasImplem;
 
 public class Acciones {
 
     int opcion;
-    Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in).useDelimiter("\n");
     boolean seguirAdelante = true;
     boolean catalogoInicializado = false;
+    CatalogoPeliculasImplem cat = new CatalogoPeliculasImplem();
+    String rutaArch = "D:\\UdemyJAVA\\CPJLaboFinal\\catalogoPelis.txt";
 
     public void ejecutarMenu() {
         
@@ -39,17 +42,26 @@ public class Acciones {
     
     public void ejecutarAccion(int opcion) {
         opcion = seleccionarOpcion();
+        System.out.println("");
         switch (opcion) {
             case 1:
                 if(!catalogoInicializado){
+                 cat.iniciarArchivo(rutaArch);
                  System.out.println("Se ha inicializado con éxito el catálogo de películas");
-                    System.out.println("ACA FALTA EL CODIGO PARA INICIALIZAR CATALOGO");
                  catalogoInicializado = true;
                 break;   
                 } 
                 
             case 2:
+                System.out.println("Escriba la película que desea agregar al catálogo");
+                String peliParaAgregar = sc.next();
+                cat.agregarPelicula(peliParaAgregar, rutaArch);
+                // System.out.println("Se ha agregado la película '" + peliParaAgregar+ "' correctamente");
+                break;
             case 3:
+                cat.listarPeliculas(rutaArch);
+                //System.out.println("");
+                break;
             case 4:
             case 0:
                 System.out.println("Gracias por utilizar el programa");

@@ -1,20 +1,56 @@
 package negocio;
-public class CatalogoPeliculasImplem implements CatalogoPeliculas{
+
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/*
+io stands for 'input-ouput'
+ */
+public class CatalogoPeliculasImplem implements CatalogoPeliculas {
 
     // Constructor vacio
-    public CatalogoPeliculasImplem(){
-        
+    public CatalogoPeliculasImplem() {
+
     }
-    
+
     // Implementacion de los metodos
     @Override
     public void agregarPelicula(String nombrePelicula, String rutaArchivo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        File archivo = new File(rutaArchivo);
+        try {
+
+            PrintWriter salida = new PrintWriter(new FileWriter(archivo, true));
+            salida.println(nombrePelicula);
+            salida.close();
+            System.out.println("Se ha agregado la película '" + nombrePelicula + "' correctamente en el archivo");
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace(System.out);
+        } catch (IOException ex) {
+            ex.printStackTrace(System.out);
+        }
+
     }
 
     @Override
     public void listarPeliculas(String rutaArchivo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        File archivo = new File(rutaArchivo);
+        try {
+            var entrada = new BufferedReader(new FileReader(archivo));
+            var lineaCompleta = entrada.readLine();
+            while(lineaCompleta!= null){
+                System.out.println("Titulo: " + lineaCompleta);
+                lineaCompleta = entrada.readLine();
+                }
+                entrada.close();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace(System.out);
+        } catch (IOException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            System.out.println("");
+        }
+        
     }
 
     @Override
@@ -24,11 +60,18 @@ public class CatalogoPeliculasImplem implements CatalogoPeliculas{
 
     @Override
     public void iniciarArchivo(String rutaArchivo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        File archivo = new File(rutaArchivo);
+        try {
+
+            PrintWriter salida = new PrintWriter(archivo);
+            salida.close();
+            System.out.println("Se ha creado el archivo en el disco duro");
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace(System.out);
+        }
+
     }
 
-
-    
 }
 
 /*

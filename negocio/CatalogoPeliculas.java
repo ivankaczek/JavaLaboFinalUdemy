@@ -1,4 +1,8 @@
 package negocio;
+
+import dominio.Pelicula;
+import java.util.*;
+
 public interface CatalogoPeliculas {
 
     public abstract void agregarPelicula(String nombrePelicula,

@@ -1,7 +1,7 @@
 package labofinal;
 
 import java.util.*;
-import negocio.CatalogoPeliculasImplem;
+import servicio.CatalogoPeliculasImplem;
 
 public class Acciones {
 

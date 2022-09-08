@@ -1,20 +1,26 @@
-package negocio;
+package servicio;
 
 import dominio.Pelicula;
 import java.util.*;
 
-public interface CatalogoPeliculas {
+public interface ICatalogoPeliculas {
+    
+    String NOMBRE_RECURSO = "D:\\UdemyJAVA\\CPJLaboFinal\\catalogoPelis.txt";
 
-    public abstract void agregarPelicula(String nombrePelicula,
-                                    String rutaArchivo);
+    public abstract void agregarPelicula(String nombrePelicula);
     
-    public abstract void listarPeliculas(String rutaArchivo);
+    public abstract void listarPeliculas();
     
-    public abstract void buscarPelicula(String rutaArchivo, 
-                                            String peliculaParaBuscar);
+    public abstract void buscarPelicula(String peliculaParaBuscar);
     
-    public abstract void iniciarArchivo(String rutaArchivo);
+    public abstract void iniciarCatalogoPeliculas();
     
+    /*
+    La idea aquí es que es una capa extra, por arriba de la anterior
+    de AccesoDatos, que es más amigable para el usuario, el cual
+    no necesita saber la ruta sino solamente poner el nombre a ingrear
+    o a buscar 
+    */
 
     
 }

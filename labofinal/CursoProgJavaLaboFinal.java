@@ -1,7 +1,7 @@
 package labofinal;
 
 import java.util.*;
-import negocio.CatalogoPeliculas;
+import servicio.ICatalogoPeliculas;
 
 public class CursoProgJavaLaboFinal {
     public static void main(String[] args) {

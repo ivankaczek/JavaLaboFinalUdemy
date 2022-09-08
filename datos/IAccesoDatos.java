@@ -6,7 +6,7 @@ import excepciones.EscrituraDatosEx;
 import excepciones.LecturaDatosEx;
 import java.util.List;
 
-public interface AccesoDatos {
+public interface IAccesoDatos {
 
 public abstract boolean existe(String rutaArchivo) throws AccesoDatosEx;
 /*

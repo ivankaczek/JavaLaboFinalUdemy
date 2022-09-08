@@ -46,7 +46,7 @@ public class Acciones {
         switch (opcion) {
             case 1:
                 if(!catalogoInicializado){
-                 cat.iniciarArchivo(rutaArch);
+                 cat.iniciarCatalogoPeliculas();
                  System.out.println("Se ha inicializado con éxito el catálogo de películas");
                  catalogoInicializado = true;
                 break;   
@@ -55,11 +55,11 @@ public class Acciones {
             case 2:
                 System.out.println("Escriba la película que desea agregar al catálogo");
                 String peliParaAgregar = sc.next();
-                cat.agregarPelicula(peliParaAgregar, rutaArch);
+                cat.agregarPelicula(peliParaAgregar);
                 // System.out.println("Se ha agregado la película '" + peliParaAgregar+ "' correctamente");
                 break;
             case 3:
-                cat.listarPeliculas(rutaArch);
+                cat.listarPeliculas();
                 //System.out.println("");
                 break;
             case 4:
